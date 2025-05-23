@@ -29,7 +29,7 @@ function CreateTask() {
     const fetchUsers = async () => {
       setIsLoadingUsers(true);
       try {
-        const response = await fetch(`${import.meta.env.VITE_API_BASE_URL}api/users`, {
+        const response = await fetch(`${import.meta.env.VITE_API_BASE_URL}/api/users`, {
             method: 'GET',
           headers: {
             Authorization: `Bearer ${token}`

@@ -1,7 +1,9 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import { setAuthData } from '../store/userslice';
 const Login = () => {
+  const navigate= useNavigate()
   const [formData, setFormData] = useState({
     email: '',
     password: '',

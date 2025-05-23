@@ -69,9 +69,7 @@ function EditTask() {
         if (usersResponse.ok) {
           const usersData = await usersResponse.json();
           setUsers(usersData || []);
-        } else {
-          setError('Failed to load users');
-        }
+        } 
       } catch (error) {
         console.error('Error fetching data:', error);
         setError(error.message || 'Failed to load task data');
