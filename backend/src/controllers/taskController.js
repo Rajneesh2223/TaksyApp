@@ -126,3 +126,39 @@ export const deleteTask = async (req, res) => {
     res.status(500).json({ message: err.message });
   }
 };
+// controllers/taskController.js
+
+export const getUserTasksById = async (req, res) => {
+  try {
+    // 1. Check if user is authenticated
+    if (!req.user || !req.user._id) {
+      return res.status(401).json({
+        success: false,
+        message: 'Not authenticated'
+      });
+    }
+
+    // 2. Get tasks assigned to this user
+    const tasks = await Task.find({
+      assignedTo: req.user._id
+    })
+    .populate('createdBy', 'name email') // who created the task
+    .populate('assignedTo', 'name email') // who it's assigned to (should be you)
+    .sort({ dueDate: 1 }); // sort by due date ascending
+
+    // 3. Send response
+    res.status(200).json({
+      success: true,
+      count: tasks.length,
+      tasks
+    });
+
+  } catch (error) {
+    console.error('Error getting user tasks:', error);
+    res.status(500).json({
+      success: false,
+      message: 'Server error',
+      error: error.message
+    });
+  }
+};

@@ -4,7 +4,8 @@ import {
   deleteTask,
   getAllTasks,
   getTaskById,
-  updateTask,
+  getUserTasksById,
+  updateTask
 } from '../controllers/taskController.js';
 
 import { isAdmin, protect } from '../middleware/authMiddleware.js';
@@ -17,8 +18,15 @@ router.post('/', protect, isAdmin, upload.array('documents', 3), createTask);
 
 // All authenticated users
 router.get('/', protect, getAllTasks);
+// router.get('/mytasks', getUserTasks);
 router.get('/:id',  getTaskById);
 router.patch('/:id',  upload.array('documents', 3), updateTask);
-router.delete('/:id',  deleteTask);
+router.delete('/:id',protect,  deleteTask);
+// Get tasks for logged-in user
+// router.get('/me', protect, getMyTasks);
+
+// Admin route to get tasks for any user
+router.get('/user/:userId', protect, getUserTasksById);
+
 
 export default router;

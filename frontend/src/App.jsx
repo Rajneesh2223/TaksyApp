@@ -8,6 +8,7 @@ import Dashboard from './pages/Dashboard';
 import EditTask from './pages/EditTask';
 import Login from './pages/Login';
 import SignUp from './pages/SignUp';
+import UserDashboard from './pages/UserDashboard';
 
 function App() {
   // const token = import.meta.env.VITE_ROLE
@@ -30,7 +31,9 @@ function App() {
           ) : role === "user" ? (
             <>
               <Route path="/dashboard" element={<Dashboard />} />
-              {/* <Route path="/task" element={<CreateTask />} /> */}
+                            <Route path="/userdashboard" element={<UserDashboard />} />
+
+                {/* <Route path="/task" element={<CreateTask />} /> */}
               {/* <Route path="/task" element={<CreateTask />} /> */}
                <Route path="/edit/:id" element={<EditTask />} />
 

@@ -58,20 +58,32 @@ function Navbar() {
                   to="/dashboard"
                   className="text-white hover:text-blue-200 px-3 py-2 rounded-md text-sm font-medium transition-colors"
                 >
-                  Dashboard
+                  All Tasks
                 </Link>
+                 <Link
+                  to="/userdashboard"
+                  className="text-white hover:text-blue-200 px-3 py-2 rounded-md text-sm font-medium transition-colors"
+                >
+                  User Dashboard
+                </Link>
+
                  {/* <Link
                   to="/edit"
                   className="text-white hover:text-blue-200 px-3 py-2 rounded-md text-sm font-medium transition-colors"
                 >
                   Edit Task
                 </Link> */}
-                <button
+               
+              <h2 className="bg-white text-black  font-semibold rounded-lg px-2 ">
+  {role}
+</h2>
+ <button
                   onClick={handleLogout}
                   className="bg-blue-700 hover:bg-blue-800 text-white px-4 py-2 rounded-md text-sm font-medium transition-colors"
                 >
                   Logout
                 </button>
+
               </>
             ) : role === "admin" ? (
               <>
@@ -93,6 +105,9 @@ function Navbar() {
                 >
                   Create Task
                 </Link>
+                  <h2 className="bg-white text-black  font-semibold rounded-lg px-2 ">
+  {role}
+</h2>
                 <button
                   onClick={handleLogout}
                   className="bg-blue-700 hover:bg-blue-800 text-white px-4 py-2 rounded-md text-sm font-medium transition-colors"
