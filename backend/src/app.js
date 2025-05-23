@@ -19,7 +19,7 @@ const corsOptions = {
     'http://localhost:3001',
     'http://localhost:5173',
     'https://yourdomain.com',
-    "https://taksyapp-1.onrender.com/"
+    "https://taksyapp-1.onrender.com"
   ],
   credentials: true,
   optionsSuccessStatus: 200,
