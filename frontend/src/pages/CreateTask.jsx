@@ -154,7 +154,7 @@ function CreateTask() {
         formDataToSend.append('documents', file);
       });
 
-      const response = await fetch(`${import.meta.env.VITE_API_BASE_URL}api/tasks`, {
+      const response = await fetch(`${import.meta.env.VITE_API_BASE_URL}/api/tasks`, {
         method: 'POST',
         headers: {
           Authorization: `Bearer ${token}`
