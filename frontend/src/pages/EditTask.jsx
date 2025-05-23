@@ -30,7 +30,7 @@ function EditTask() {
     const fetchData = async () => {
       try {
         // Fetch task data
-        const taskResponse = await fetch(`${import.meta.env.VITE_API_BASE_URL}/api/tasks/${id}`, {
+        const taskResponse = await fetch(`${import.meta.env.VITE_API_BASE_URL}api/tasks/${id}`, {
           method: 'GET',
           headers: {
             Authorization: `Bearer ${token}`
@@ -59,7 +59,7 @@ function EditTask() {
         setExistingDocuments(taskData.documents || []);
         
         // Fetch users
-        const usersResponse = await fetch(`${import.meta.env.VITE_API_BASE_URL}/api/users`, {
+        const usersResponse = await fetch(`${import.meta.env.VITE_API_BASE_URL}api/users`, {
           method: 'GET',
           headers: {
             Authorization: `Bearer ${token}`
@@ -195,7 +195,7 @@ function EditTask() {
 
       console.log('Existing documents being sent:', existingDocuments);
 
-      const response = await fetch(`${import.meta.env.VITE_API_BASE_URL}/api/tasks/${id}`, {
+      const response = await fetch(`${import.meta.env.VITE_API_BASE_URL}api/tasks/${id}`, {
         method: 'PATCH',
         headers: {
           Authorization: `Bearer ${token}`

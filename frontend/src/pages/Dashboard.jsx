@@ -43,7 +43,7 @@ const Dashboard = () => {
     setLoading(true);
     setError(null);
     try {
-      const response = await fetch(`${import.meta.env.VITE_API_BASE_URL}/api/tasks`, {
+      const response = await fetch(`${import.meta.env.VITE_API_BASE_URL}api/tasks`, {
         headers: {
           Authorization: `Bearer ${token}`
         }
@@ -155,7 +155,7 @@ const Dashboard = () => {
     if (!window.confirm('Are you sure you want to delete this task?')) return;
     
     try {
-      const response = await fetch(`${import.meta.env.VITE_API_BASE_URL}/api/tasks/${taskId}`, {
+      const response = await fetch(`${import.meta.env.VITE_API_BASE_URL}api/tasks/${taskId}`, {
         method: 'DELETE',
         headers: {
           Authorization: `Bearer ${token}`
@@ -184,7 +184,7 @@ const Dashboard = () => {
   const handleViewPdf = async (documentPath) => {
     try {
       const filename = getFileName(documentPath);
-      const pdfUrl = `${import.meta.env.VITE_API_BASE_URL}/uploads/${filename}`;
+      const pdfUrl = `${import.meta.env.VITE_API_BASE_URL}uploads/${filename}`;
       console.log(pdfUrl)
       
       const response = await fetch(pdfUrl, {
@@ -210,7 +210,7 @@ const Dashboard = () => {
   const handleDownloadPdf = async (documentPath) => {
     try {
       const filename = getFileName(documentPath);
-      const pdfUrl = `${import.meta.env.VITE_API_BASE_URL}/uploads/${filename}`;
+      const pdfUrl = `${import.meta.env.VITE_API_BASE_URL}uploads/${filename}`;
       
       const response = await fetch(pdfUrl, {
         headers: {
